@@ -1,0 +1,305 @@
+:root {
+  color: #111827;
+  background: #eef0e8;
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top left, rgba(228, 81, 35, 0.18), transparent 32rem),
+    linear-gradient(135deg, #f6f1e8 0%, #e6ebdf 52%, #d8ded2 100%);
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  border: 0;
+  border-radius: 999px;
+  padding: 0.8rem 1rem;
+  color: #fff;
+  background: #111827;
+  cursor: pointer;
+  transition: transform 150ms ease, opacity 150ms ease;
+}
+
+button:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+button.secondary {
+  color: #111827;
+  background: #f6e7bd;
+}
+
+.shell {
+  width: min(1180px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 32px 0 56px;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 360px;
+  gap: 24px;
+  align-items: end;
+  padding: 28px;
+  border: 1px solid rgba(17, 24, 39, 0.12);
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.62);
+  box-shadow: 0 24px 80px rgba(17, 24, 39, 0.08);
+  backdrop-filter: blur(18px);
+}
+
+.eyebrow {
+  margin: 0 0 12px;
+  color: #a43e1d;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  max-width: 780px;
+  margin-bottom: 14px;
+  font-size: clamp(2.25rem, 6vw, 5.5rem);
+  line-height: 0.9;
+  letter-spacing: -0.07em;
+}
+
+.hero p:not(.eyebrow) {
+  max-width: 720px;
+  margin-bottom: 0;
+  color: #4b5563;
+  font-size: 1.05rem;
+}
+
+.user-form {
+  padding: 18px;
+  border-radius: 22px;
+  background: #111827;
+  color: #fff;
+}
+
+.user-form label,
+.user-form small {
+  display: block;
+  color: #cbd5e1;
+}
+
+.user-form div {
+  display: flex;
+  gap: 8px;
+  margin: 10px 0;
+}
+
+.user-form input {
+  min-width: 0;
+  flex: 1;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 999px;
+  padding: 0.75rem 0.9rem;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.user-form button {
+  color: #111827;
+  background: #f6e7bd;
+}
+
+.toast {
+  position: sticky;
+  top: 16px;
+  z-index: 2;
+  width: fit-content;
+  max-width: 100%;
+  margin: 18px 0;
+  padding: 0.85rem 1rem;
+  border-radius: 999px;
+  box-shadow: 0 16px 45px rgba(17, 24, 39, 0.16);
+}
+
+.toast--success {
+  color: #064e3b;
+  background: #bbf7d0;
+}
+
+.toast--error,
+.state--error {
+  color: #7f1d1d;
+  background: #fecaca;
+}
+
+.state {
+  margin-top: 24px;
+  padding: 1rem;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 24px;
+}
+
+.drop-card {
+  display: flex;
+  min-height: 480px;
+  flex-direction: column;
+  padding: 22px;
+  border: 1px solid rgba(17, 24, 39, 0.12);
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.75);
+  box-shadow: 0 18px 55px rgba(17, 24, 39, 0.08);
+}
+
+.drop-card__topline,
+.activity-feed li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.drop-card__topline {
+  color: #6b7280;
+  font-size: 0.8rem;
+}
+
+.status {
+  border-radius: 999px;
+  padding: 0.25rem 0.55rem;
+  color: #065f46;
+  background: #bbf7d0;
+  font-weight: 800;
+}
+
+.status--sold-out {
+  color: #7f1d1d;
+  background: #fecaca;
+}
+
+.drop-card h2 {
+  margin: 18px 0;
+  font-size: 1.75rem;
+  line-height: 1;
+  letter-spacing: -0.05em;
+}
+
+.stock-panel,
+.reservation-panel {
+  display: grid;
+  gap: 4px;
+  margin-bottom: 14px;
+  padding: 18px;
+  border-radius: 22px;
+  background: #111827;
+  color: #fff;
+}
+
+.stock-panel span,
+.reservation-panel span,
+.stock-panel small {
+  color: #cbd5e1;
+}
+
+.stock-panel strong,
+.reservation-panel strong {
+  font-size: 3rem;
+  line-height: 0.95;
+  letter-spacing: -0.08em;
+}
+
+.reservation-panel {
+  background: #a43e1d;
+}
+
+.actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin: 4px 0 20px;
+}
+
+.activity-feed {
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px solid rgba(17, 24, 39, 0.1);
+}
+
+.activity-feed h3 {
+  margin-bottom: 12px;
+  font-size: 0.9rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.activity-feed ol {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.activity-feed li {
+  border-radius: 14px;
+  padding: 0.75rem;
+  background: #f8fafc;
+}
+
+.activity-feed time,
+.activity-feed p {
+  color: #6b7280;
+}
+
+@media (max-width: 900px) {
+  .hero,
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .shell {
+    width: min(100% - 20px, 1180px);
+    padding-top: 10px;
+  }
+
+  .hero,
+  .drop-card {
+    border-radius: 22px;
+    padding: 18px;
+  }
+
+  .actions,
+  .user-form div {
+    grid-template-columns: 1fr;
+    flex-direction: column;
+  }
+}

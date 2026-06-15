@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="390" viewBox="0 0 980 390" role="img" aria-labelledby="title desc">
+  <title id="title">Purchase flow diagram</title>
+  <desc id="desc">User completes purchase for an active reservation. API validates reservation, marks it purchased, creates purchase, and emits activity update.</desc>
+  <defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#334155"/></marker><style>.bg{fill:#f8fafc}.box{fill:#fff;stroke:#334155;stroke-width:2}.step{fill:#eef2ff;stroke:#4338ca;stroke-width:2}.text{font:600 15px Arial,sans-serif;fill:#111827}.small{font:500 13px Arial,sans-serif;fill:#475569}.line{stroke:#334155;stroke-width:2;fill:none;marker-end:url(#arrow)}</style></defs>
+  <rect class="bg" width="980" height="390" rx="24"/>
+  <rect class="box" x="45" y="70" width="160" height="70" rx="14"/><text class="text" x="125" y="110" text-anchor="middle">Browser</text>
+  <rect class="box" x="285" y="70" width="170" height="70" rx="14"/><text class="text" x="370" y="110" text-anchor="middle">Express API</text>
+  <rect class="box" x="540" y="70" width="190" height="70" rx="14"/><text class="text" x="635" y="110" text-anchor="middle">PostgreSQL</text>
+  <rect class="box" x="800" y="70" width="140" height="70" rx="14"/><text class="text" x="870" y="110" text-anchor="middle">Socket.io</text>
+  <path class="line" d="M205 105 L285 105"/><text class="small" x="214" y="92">POST purchase</text>
+  <path class="line" d="M455 105 L540 105"/><text class="small" x="465" y="92">BEGIN</text>
+  <rect class="step" x="260" y="185" width="420" height="60" rx="14"/><text class="text" x="470" y="211" text-anchor="middle">Validate active reservation</text><text class="small" x="470" y="233" text-anchor="middle">status ACTIVE and expiresAt &gt; now</text>
+  <rect class="step" x="260" y="275" width="420" height="60" rx="14"/><text class="text" x="470" y="301" text-anchor="middle">Mark PURCHASED and create Purchase</text><text class="small" x="470" y="323" text-anchor="middle">stock was already deducted during reservation</text>
+  <path class="line" d="M470 245 L470 275"/>
+  <path class="line" d="M680 305 C750 300 785 190 800 120"/><text class="small" x="714" y="270">emit activity update</text>
+  <path class="line" d="M260 305 C185 300 140 210 125 140"/><text class="small" x="130" y="292">201 purchaseId</text>
+</svg>

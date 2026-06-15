@@ -1,0 +1,13 @@
+{
+  "name": "sneaker-drop-inventory",
+  "private": true,
+  "packageManager": "pnpm@9.15.0",
+  "scripts": {
+    "dev": "pnpm --parallel --filter @sneaker-drop/api --filter @sneaker-drop/web dev",
+    "build": "pnpm --filter @sneaker-drop/api build && pnpm --filter @sneaker-drop/web build",
+    "typecheck": "pnpm --filter @sneaker-drop/api typecheck && pnpm --filter @sneaker-drop/web typecheck"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.2"
+  }
+}

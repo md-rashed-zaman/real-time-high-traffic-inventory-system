@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="520" viewBox="0 0 980 520" role="img" aria-labelledby="title desc">
+  <title id="title">Data model diagram</title>
+  <desc id="desc">User, Drop, Reservation, and Purchase models with one-to-many and one-to-one relations.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#334155" />
+    </marker>
+    <style>
+      .bg{fill:#f8fafc}.entity{fill:#fff;stroke:#334155;stroke-width:2}.head{fill:#111827}.title{font:700 16px Arial,sans-serif;fill:#fff}.field{font:500 13px Arial,sans-serif;fill:#111827}.note{font:600 13px Arial,sans-serif;fill:#c2410c}.line{stroke:#334155;stroke-width:2;fill:none;marker-end:url(#arrow)}.label{font:600 13px Arial,sans-serif;fill:#475569}
+    </style>
+  </defs>
+  <rect class="bg" width="980" height="520" rx="24" />
+  <g transform="translate(55 55)">
+    <rect class="entity" width="220" height="170" rx="14" />
+    <rect class="head" width="220" height="42" rx="14" />
+    <text class="title" x="110" y="27" text-anchor="middle">User</text>
+    <text class="field" x="18" y="68">id PK</text>
+    <text class="field" x="18" y="94">username UK</text>
+    <text class="field" x="18" y="120">createdAt</text>
+  </g>
+  <g transform="translate(705 55)">
+    <rect class="entity" width="220" height="205" rx="14" />
+    <rect class="head" width="220" height="42" rx="14" />
+    <text class="title" x="110" y="27" text-anchor="middle">Drop</text>
+    <text class="field" x="18" y="68">id PK</text>
+    <text class="field" x="18" y="94">name</text>
+    <text class="field" x="18" y="120">totalStock</text>
+    <text class="field" x="18" y="146">availableStock</text>
+    <text class="field" x="18" y="172">startsAt, endsAt</text>
+  </g>
+  <g transform="translate(380 170)">
+    <rect class="entity" width="240" height="210" rx="14" />
+    <rect class="head" width="240" height="42" rx="14" />
+    <text class="title" x="120" y="27" text-anchor="middle">Reservation</text>
+    <text class="field" x="18" y="68">id PK</text>
+    <text class="field" x="18" y="94">userId FK</text>
+    <text class="field" x="18" y="120">dropId FK</text>
+    <text class="field" x="18" y="146">status ACTIVE/EXPIRED/PURCHASED</text>
+    <text class="field" x="18" y="172">expiresAt</text>
+    <text class="note" x="18" y="198">unique ACTIVE user/drop</text>
+  </g>
+  <g transform="translate(380 410)">
+    <rect class="entity" width="240" height="90" rx="14" />
+    <rect class="head" width="240" height="36" rx="14" />
+    <text class="title" x="120" y="24" text-anchor="middle">Purchase</text>
+    <text class="field" x="18" y="60">userId FK, dropId FK, reservationId UK</text>
+  </g>
+  <path class="line" d="M275 140 C330 150 335 210 380 230" />
+  <text class="label" x="285" y="128">1 user to many reservations</text>
+  <path class="line" d="M705 160 C660 170 665 210 620 235" />
+  <text class="label" x="618" y="145">1 drop to many reservations</text>
+  <path class="line" d="M500 380 L500 410" />
+  <text class="label" x="520" y="402">reservation converts to purchase</text>
+  <path class="line" d="M275 190 C330 270 330 445 380 455" />
+  <path class="line" d="M705 225 C655 295 655 455 620 455" />
+</svg>

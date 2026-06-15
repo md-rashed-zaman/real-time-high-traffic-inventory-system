@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="390" viewBox="0 0 980 390" role="img" aria-labelledby="title desc">
+  <title id="title">Stock recovery flow diagram</title>
+  <desc id="desc">Expiration worker finds expired reservations, marks them expired, restores drop stock, and broadcasts updated stock.</desc>
+  <defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#334155"/></marker><style>.bg{fill:#f8fafc}.box{fill:#fff;stroke:#334155;stroke-width:2}.step{fill:#fff7ed;stroke:#c2410c;stroke-width:2}.text{font:600 15px Arial,sans-serif;fill:#111827}.small{font:500 13px Arial,sans-serif;fill:#475569}.line{stroke:#334155;stroke-width:2;fill:none;marker-end:url(#arrow)}</style></defs>
+  <rect class="bg" width="980" height="390" rx="24"/>
+  <rect class="box" x="50" y="70" width="170" height="70" rx="14"/><text class="text" x="135" y="110" text-anchor="middle">Expiration Worker</text>
+  <rect class="box" x="395" y="70" width="190" height="70" rx="14"/><text class="text" x="490" y="110" text-anchor="middle">PostgreSQL</text>
+  <rect class="box" x="760" y="70" width="150" height="70" rx="14"/><text class="text" x="835" y="110" text-anchor="middle">Browsers</text>
+  <rect class="step" x="285" y="180" width="410" height="58" rx="14"/><text class="text" x="490" y="205" text-anchor="middle">Find expired ACTIVE reservations</text><text class="small" x="490" y="226" text-anchor="middle">expiresAt &lt;= now</text>
+  <rect class="step" x="285" y="260" width="410" height="58" rx="14"/><text class="text" x="490" y="285" text-anchor="middle">Mark EXPIRED and increment stock</text><text class="small" x="490" y="306" text-anchor="middle">grouped by dropId</text>
+  <path class="line" d="M220 105 L395 105"/><text class="small" x="260" y="92">periodic scan</text>
+  <path class="line" d="M490 140 L490 180"/>
+  <path class="line" d="M490 238 L490 260"/>
+  <path class="line" d="M695 289 C760 275 810 190 835 140"/><text class="small" x="720" y="260">stock update event</text>
+</svg>

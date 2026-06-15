@@ -1,0 +1,22 @@
+# Dependencies and build output
+node_modules/
+dist/
+apps/**/node_modules/
+apps/**/dist/
+
+# Environment/secrets
+.env
+.env.local
+.env.*.local
+
+# Logs and generated metadata
+*.log
+*.tsbuildinfo
+.DS_Store
+
+# Local browser/test artifacts
+.playwright-mcp/
+
+# Local interview preparation notes
+docs/
+
