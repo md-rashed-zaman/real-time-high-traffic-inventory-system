@@ -1,6 +1,6 @@
 import type { Server as HttpServer } from 'node:http';
 import { Server } from 'socket.io';
-import { env } from '../config/env.js';
+import { isAllowedOrigin } from '../config/cors.js';
 
 export type LatestPurchaser = {
   username: string;
@@ -12,7 +12,9 @@ let io: Server | undefined;
 export function createSocketServer(server: HttpServer) {
   io = new Server(server, {
     cors: {
-      origin: env.CLIENT_URL,
+      origin(origin, callback) {
+        callback(null, isAllowedOrigin(origin));
+      },
       methods: ['GET', 'POST']
     }
   });

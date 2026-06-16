@@ -1,6 +1,6 @@
 import express from 'express';
 import cors from 'cors';
-import { env } from './config/env.js';
+import { corsOptions } from './config/cors.js';
 import { dropsRouter } from './modules/drops/drops.routes.js';
 import { usersRouter } from './modules/users/users.routes.js';
 import { reservationsRouter } from './modules/reservations/reservations.routes.js';
@@ -10,7 +10,7 @@ import { errorHandler } from './middleware/error-handler.js';
 export function createApp() {
   const app = express();
 
-  app.use(cors({ origin: env.CLIENT_URL }));
+  app.use(cors(corsOptions));
   app.use(express.json());
 
   app.get('/api/health', (_req, res) => {

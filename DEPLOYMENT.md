@@ -185,6 +185,23 @@ VITE_API_URL="https://YOUR_RENDER_SERVICE.onrender.com/api"
 VITE_SOCKET_URL="https://YOUR_RENDER_SERVICE.onrender.com"
 ```
 
+In Vercel, add these under:
+
+```text
+Project Settings -> Environment Variables
+```
+
+Do not create a custom environment named `VITE`. If Vercel opens a `Create Pre-production Environment` modal, cancel it. `VITE_API_URL` and `VITE_SOCKET_URL` are environment variable names, not environment names.
+
+Use these values for this deployment:
+
+```env
+VITE_API_URL=https://sneaker-drop-api-vaid.onrender.com/api
+VITE_SOCKET_URL=https://sneaker-drop-api-vaid.onrender.com
+```
+
+Select at least `Production`. Selecting `Production`, `Preview`, and `Development` is also fine.
+
 7. Deploy.
 
 ## 6. Update Backend CORS
@@ -253,6 +270,56 @@ After migrations are applied, verify the backend again:
 ```text
 https://YOUR_RENDER_SERVICE.onrender.com/api/health
 ```
+
+## Troubleshooting: Frontend Loads But No Drops Show
+
+Check these in order:
+
+1. Confirm the backend has tables and responds:
+
+```text
+https://sneaker-drop-api-vaid.onrender.com/api/health
+```
+
+Expected:
+
+```json
+{ "ok": true }
+```
+
+2. Confirm the drops API returns data:
+
+```text
+https://sneaker-drop-api-vaid.onrender.com/api/drops
+```
+
+If it returns `[]`, the Neon database is not seeded yet.
+
+3. Seed Neon from your local machine:
+
+```bash
+cd /mnt/VaultD/Career_Interview/assessments/sneaker-drop-inventory
+DATABASE_URL="YOUR_NEON_DATABASE_URL" pnpm --filter @sneaker-drop/api seed
+```
+
+4. Confirm `GET /api/drops` now returns seeded drops.
+
+5. Confirm Vercel environment variables are set exactly:
+
+```env
+VITE_API_URL=https://sneaker-drop-api-vaid.onrender.com/api
+VITE_SOCKET_URL=https://sneaker-drop-api-vaid.onrender.com
+```
+
+6. Redeploy Vercel after adding or changing environment variables.
+
+7. Confirm Render `CLIENT_URL` equals your actual Vercel frontend URL, for example:
+
+```env
+CLIENT_URL=https://YOUR_VERCEL_PROJECT.vercel.app
+```
+
+Then redeploy Render.
 
 ## 8. Submission Values
 
