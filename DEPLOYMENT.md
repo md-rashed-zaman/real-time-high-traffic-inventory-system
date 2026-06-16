@@ -92,13 +92,7 @@ sneaker-drop-inventory
 Build command:
 
 ```bash
-pnpm install && pnpm --filter @sneaker-drop/api prisma:generate && pnpm --filter @sneaker-drop/api build
-```
-
-Pre-deploy command:
-
-```bash
-pnpm --filter @sneaker-drop/api prisma:deploy
+pnpm install && pnpm --filter @sneaker-drop/api prisma:generate && pnpm --filter @sneaker-drop/api prisma:deploy && pnpm --filter @sneaker-drop/api build
 ```
 
 Start command:
@@ -138,7 +132,7 @@ Expected response:
 
 ## 4. Seed Production Data
 
-Render runs migrations during build, but it does not automatically run the seed script.
+Render runs migrations during the build command, but it does not automatically run the seed script.
 
 The easiest free approach is to seed locally against the Neon database:
 
@@ -217,6 +211,48 @@ Test:
 6. Click `Complete Purchase`.
 7. Confirm latest purchasers updates.
 8. Reserve and wait 60 seconds to confirm stock returns.
+
+## Troubleshooting: `public.Reservation` Does Not Exist
+
+If Render logs show:
+
+```text
+The table `public.Reservation` does not exist in the current database.
+```
+
+The backend connected to Neon, but migrations were not applied to that Neon database yet.
+
+Fix option 1, recommended on Render free tier:
+
+Set Render `Build Command` to include `prisma:deploy`:
+
+```bash
+pnpm install && pnpm --filter @sneaker-drop/api prisma:generate && pnpm --filter @sneaker-drop/api prisma:deploy && pnpm --filter @sneaker-drop/api build
+```
+
+Then click:
+
+```text
+Manual Deploy -> Deploy latest commit
+```
+
+Fix option 2, run migrations locally against Neon:
+
+```bash
+DATABASE_URL="YOUR_NEON_DATABASE_URL" pnpm --filter @sneaker-drop/api prisma:deploy
+```
+
+Then seed production data:
+
+```bash
+DATABASE_URL="YOUR_NEON_DATABASE_URL" pnpm --filter @sneaker-drop/api seed
+```
+
+After migrations are applied, verify the backend again:
+
+```text
+https://YOUR_RENDER_SERVICE.onrender.com/api/health
+```
 
 ## 8. Submission Values
 

@@ -3,8 +3,7 @@ services:
     name: sneaker-drop-api
     runtime: node
     plan: free
-    buildCommand: pnpm install && pnpm --filter @sneaker-drop/api prisma:generate && pnpm --filter @sneaker-drop/api build
-    preDeployCommand: pnpm --filter @sneaker-drop/api prisma:deploy
+    buildCommand: pnpm install && pnpm --filter @sneaker-drop/api prisma:generate && pnpm --filter @sneaker-drop/api prisma:deploy && pnpm --filter @sneaker-drop/api build
     startCommand: pnpm --filter @sneaker-drop/api start
     envVars:
       - key: NODE_VERSION
