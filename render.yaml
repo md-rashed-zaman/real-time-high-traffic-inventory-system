@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: sneaker-drop-api
+    runtime: node
+    plan: free
+    buildCommand: corepack enable && pnpm install && pnpm --filter @sneaker-drop/api prisma:generate && pnpm --filter @sneaker-drop/api build
+    preDeployCommand: corepack enable && pnpm --filter @sneaker-drop/api prisma:deploy
+    startCommand: corepack enable && pnpm --filter @sneaker-drop/api start
+    envVars:
+      - key: NODE_VERSION
+        value: 20
+      - key: DATABASE_URL
+        sync: false
+      - key: CLIENT_URL
+        sync: false
+      - key: RESERVATION_TTL_SECONDS
+        value: 60
+      - key: EXPIRATION_WORKER_INTERVAL_MS
+        value: 5000

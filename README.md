@@ -226,3 +226,5 @@ Recommended production-like deployment:
 - Database: Neon Postgres
 
 The assessment recommends Vercel and Neon. Vercel is a good fit for the frontend, but a traditional Socket.io server and the expiration worker are better suited to a persistent Node.js backend. If the backend is deployed on Vercel serverless functions, realtime and expiration should be handled with a managed realtime service and scheduled/background jobs.
+
+Detailed deployment steps are available in `DEPLOYMENT.md`.
