@@ -18,5 +18,5 @@ apps/**/dist/
 .playwright-mcp/
 
 # Local interview preparation notes
-docs/
+# docs/
 
