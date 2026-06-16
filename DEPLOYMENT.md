@@ -92,19 +92,19 @@ sneaker-drop-inventory
 Build command:
 
 ```bash
-corepack enable && pnpm install && pnpm --filter @sneaker-drop/api prisma:generate && pnpm --filter @sneaker-drop/api build
+pnpm install && pnpm --filter @sneaker-drop/api prisma:generate && pnpm --filter @sneaker-drop/api build
 ```
 
 Pre-deploy command:
 
 ```bash
-corepack enable && pnpm --filter @sneaker-drop/api prisma:deploy
+pnpm --filter @sneaker-drop/api prisma:deploy
 ```
 
 Start command:
 
 ```bash
-corepack enable && pnpm --filter @sneaker-drop/api start
+pnpm --filter @sneaker-drop/api start
 ```
 
 7. Add environment variables:

@@ -3,9 +3,9 @@ services:
     name: sneaker-drop-api
     runtime: node
     plan: free
-    buildCommand: corepack enable && pnpm install && pnpm --filter @sneaker-drop/api prisma:generate && pnpm --filter @sneaker-drop/api build
-    preDeployCommand: corepack enable && pnpm --filter @sneaker-drop/api prisma:deploy
-    startCommand: corepack enable && pnpm --filter @sneaker-drop/api start
+    buildCommand: pnpm install && pnpm --filter @sneaker-drop/api prisma:generate && pnpm --filter @sneaker-drop/api build
+    preDeployCommand: pnpm --filter @sneaker-drop/api prisma:deploy
+    startCommand: pnpm --filter @sneaker-drop/api start
     envVars:
       - key: NODE_VERSION
         value: 20
