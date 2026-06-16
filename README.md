@@ -4,8 +4,8 @@ Backend and frontend implementation for a limited edition sneaker drop. Users ca
 
 ## Deliverables
 
-- GitHub repository: add repository URL after pushing.
-- Live URL: optional bonus, add deployment URL if hosted.
+- GitHub repository: `https://github.com/md-rashed-zaman/real-time-high-traffic-inventory-system`
+- Live URL: `https://real-time-high-traffic-inventory-sy-theta.vercel.app`
 - Demo video: add Loom/video URL showing two browser windows with realtime stock sync.
 
 ## Tech Stack
